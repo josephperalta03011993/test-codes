@@ -9,11 +9,11 @@ const workEndSound = document.getElementById('work-end-sound');
 const breakEndSound = document.getElementById('break-end-sound');
 
 // for testing
-let workDuration = 1 * 5; // 25 minutes in seconds
-let breakDuration = 1 * 5; // 5 minutes in seconds
+//let workDuration = 1 * 5; // 25 minutes in seconds
+//let breakDuration = 1 * 5; // 5 minutes in seconds
 
-//let workDuration = 25 * 60; // 25 minutes in seconds
-//let breakDuration = 5 * 60; // 5 minutes in seconds
+let workDuration = 25 * 60; // 25 minutes in seconds
+let breakDuration = 5 * 60; // 5 minutes in seconds
 let timeRemaining = workDuration; // Initially set to work time
 let isWorkSession = true;
 let timerInterval; // To store the setInterval reference
