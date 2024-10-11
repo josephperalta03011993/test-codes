@@ -8,8 +8,8 @@ const sessionTracker = document.getElementById('completed-sessions');
 const workEndSound = document.getElementById('work-end-sound');
 const breakEndSound = document.getElementById('break-end-sound');
 
-let workDuration = 25 * 60; // 25 minutes in seconds
-let breakDuration = 5 * 60; // 5 minutes in seconds
+let workDuration = 1 * 3; // 25 minutes in seconds
+let breakDuration = 1 * 3; // 5 minutes in seconds
 let timeRemaining = workDuration; // Initially set to work time
 let isWorkSession = true;
 let timerInterval; // To store the setInterval reference
@@ -64,6 +64,7 @@ function switchSession() {
         timeRemaining = breakDuration;
         isWorkSession = false;
         document.body.style.backgroundColor = "#6ab04c"; // Change to green for break
+        showNotification("Break Time!", "Don`t forget to take care of yourself"); // notify user
     } else {
         // Play break end sound
         breakEndSound.play();
@@ -71,7 +72,9 @@ function switchSession() {
         isWorkSession = true;
         incrementSessionCount();
         document.body.style.backgroundColor = "#ff6b6b"; // Change to red for work
+        showNotification("Work Time!", "Stay focus! You`re doing great!"); // notify user
     }
+    
     updateTimerDisplay();
     startTimer(); // Automatically start the new session
 }
@@ -89,3 +92,25 @@ resetButton.addEventListener('click', resetTimer);
 
 // Initial display setup
 updateTimerDisplay();
+
+// Check if notification is supported
+if ("Notification" in window) {
+    console.log("Notification is supported")
+    
+    // Ask for permission
+    if (Notification.permission === "default") {
+        Notification.requestPermission();
+    }
+
+} else {
+    console.error("Notification is not supported!")
+}
+
+// Show notification
+function showNotification(title, message) {
+    if (Notification.permission === "granted") {
+        new Notification(title, {
+            body: message
+        });
+    }
+}
