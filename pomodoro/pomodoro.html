@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles/styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="pomodoro-container">
+        <!-- Timer Display -->
+        <div id="timer">
+            <span id="minutes">25</span>:<span id="seconds">00</span>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="controls">
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+            <audio id="work-end-sound" src="sounds/work_end.wav" preload="auto"></audio>
+            <audio id="break-end-sound" src="sounds/break_end.wav" preload="auto"></audio>
+        </div>
+
+        <!-- Completed Sessions -->
+        <div id="session-tracker">
+            Completed Pomodoros: <span id="completed-sessions">0</span>
+        </div>
+    </div>
+
+    <script src="scripts/scripts.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
